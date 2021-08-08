@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+$link-decoration: none;
+
+@import "~bootstrap/scss/bootstrap";
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+:root {
+  --brand-primary-color: #f4b886;
+  --bs-font-sans-serif: "Segoe UI", "Noto Sans TC", sans-serif;
+}
+#js-canvas {
+  left: 0px;
+}
+body {
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+// small avatar
+.img40c {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+// showcase items
+.img200 {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+// recipe cover image
+.img450 {
+  width: 450px;
+  height: 450px;
+  object-fit: cover;
+}

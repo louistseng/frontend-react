@@ -1,0 +1,27 @@
+.LoginPage {
+  width: 460px;
+  margin: 30px auto;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  box-shadow: 3px 3px 10px #ddd;
+
+  .nav-tabs .nav-item .nav-link {
+    padding: 15px;
+    background-color: #cac8c8;
+    color: #fff;
+    box-shadow: 3px 3px 10px #ddd;
+  }
+
+  .nav-tabs {
+    justify-content: center;
+    border-radius: 10px 10px 0px 0px;
+  }
+  .nav-tabs .nav-item .nav-link.active {
+    color: black;
+  }
+
+  .form-content {
+    width: 400px;
+    margin: 10px auto;
+  }
+}
