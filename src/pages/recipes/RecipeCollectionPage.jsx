@@ -5,14 +5,25 @@
 import React, { useEffect } from 'react';
 import './RecipeListPage.scss';
 import { GiCook } from 'react-icons/gi';
-import { Container, Row, Col } from 'react-bootstrap';
-import Breadcrumb from 'react-bootstrap/Breadcrumb';
-import { BsFillHouseDoorFill } from 'react-icons/bs';
+import { Row, Col, Form } from 'react-bootstrap';
+// import Breadcrumb from 'react-bootstrap/Breadcrumb';
+// import { BsFillHouseDoorFill } from 'react-icons/bs';
 import Tab from 'react-bootstrap/Tab';
-import Advertise from '@/pages/recipes/components/Advertise.jsx';
+// import Advertise from '@/pages/recipes/components/Advertise.jsx';
 import CollectionCookbook from '@/pages/recipes/components/CollectionCookbook.jsx';
+import MemberAside from '@/pages/member/MemberAside.jsx';
 
 export default function RecipeListPage() {
+  const style = {
+    formStyle: {
+      margin: '30px 0px 0px 12px',
+      border: '1px solid #eee',
+      padding: '50px',
+      fontSize: '18px',
+      boxShadow: '3px 3px 10px #ddd',
+    },
+  };
+
   const [recipes, setRecipes] = React.useState([]);
   // eslint-disable-next-line no-unused-vars
 
@@ -36,49 +47,31 @@ export default function RecipeListPage() {
   }, []);
 
   return (
-    <>
+    <div className="d-flex">
+      <div>
+        <MemberAside />
+      </div>
       <div className="RecipeListPage" eventKey="#line2">
         <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
-          <Advertise />
+          {/* <Advertise /> */}
           <Row className="justify-content-md-center">
-            <Col>
-              <div>
-                <Container className="menu">
-                  <Row>
-                    <Col className="article">
-                      <div className="wow">
-                        <Breadcrumb>
-                          <Breadcrumb.Item href="#">
-                            <BsFillHouseDoorFill />
-                            首頁
-                          </Breadcrumb.Item>
-                          <Breadcrumb.Item href="/recipes">
-                            <GiCook />
-                            好味食譜
-                          </Breadcrumb.Item>
-                        </Breadcrumb>
-                      </div>
-                      <div className="title1">
-                        <h2>
-                          <GiCook />
-                          食譜收藏
-                        </h2>
-                        <hr />
-                      </div>
-                      <div className="cookbook">
-                        {recipes.map(value => <CollectionCookbook recipe={value} />)}
-                      </div>
-                      {/* <div xd={6} className="pag">
-                        <Pagination />
-                      </div> */}
-                    </Col>
-                  </Row>
-                </Container>
-              </div>
+            <Col lg={12}>
+              <Form style={style.formStyle}>
+                <div className="title1">
+                  <h3>
+                    <GiCook />
+                    食譜收藏
+                  </h3>
+                  <hr />
+                </div>
+                <div className="cookbook">
+                  {recipes.map(value => <CollectionCookbook recipe={value} />)}
+                </div>
+              </Form>
             </Col>
           </Row>
         </Tab.Container>
       </div>
-    </>
+    </div>
   );
 }

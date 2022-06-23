@@ -15,7 +15,7 @@ export default function MyMap() {
       <MapContainer
         style={{
           height: '500px',
-          width: '80%',
+          width: '100%',
           marginBottom: '30px',
           margin: '0 auto',
           backgroundColor: '#eee',

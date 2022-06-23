@@ -10,6 +10,7 @@ import RecipeListPage from '@/pages/recipes/RecipeListPage.jsx';
 import RecipeCollectionPage from '@/pages/recipes/RecipeCollectionPage.jsx';
 import RecipePage from '@/pages/recipes/RecipePage.jsx';
 import MyMap from '@/pages/MyMap.jsx';
+import CreditCard from '@/pages/CreditCard.jsx';
 import AboutPage from '@/pages/AboutPage.jsx';
 import CartPage from '@/pages/member/CartPage.jsx';
 import MemberPage from '@/pages/member/MemberPage.jsx';
@@ -39,6 +40,9 @@ function App() {
               </Route>
               <Route path="/cart" exact>
                 <CartPage />
+              </Route>
+              <Route path="/creditcard" exact>
+                <CreditCard />
               </Route>
               <Route path="/recipes">
                 <RecipeListPage />

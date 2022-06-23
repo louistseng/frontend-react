@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Button, ListGroup } from 'react-bootstrap';
 import { Rating } from '@material-ui/lab';
 import { FaHeart } from 'react-icons/fa';
@@ -50,7 +50,7 @@ function RecipeHead({ recipe }) {
               alt=""
             />
             <span className="info">
-              <a href="/#">{recipe.author.name}</a>
+              <Link to="/#">{recipe.author.name}</Link>
             </span>
           </div>
           <div>
@@ -123,9 +123,9 @@ function RecipeReviewList({ reviews }) {
             />
             <div className="d-grid">
               <span className="info">
-                <a href={`/member/${review.member.memberId}`}>
+                <Link to={`/member/${review.member.memberId}`}>
                   {review.member.name}
-                </a>
+                </Link>
               </span>
               <div>
                 <Rating className="align-middle" value={review.rating} readOnly />
@@ -206,7 +206,7 @@ export default function RecipePage() {
     <div className="d-grid gap-5 py-4">
       <PageBreadcrumb
         pages={[
-          { title: '好味食譜', href: '/recipes' },
+          // { title: '好味食譜', href: '/recipes' },
           { title: recipe.name, href: `/recipe/${recipe.recipeId}` },
         ]}
       />

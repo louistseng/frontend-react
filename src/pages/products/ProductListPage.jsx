@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import {
   Tab, Container, Carousel,
 } from 'react-bootstrap';
 import { FaHome } from 'react-icons/fa';
 import './ProductListPage.scss';
 import ProductsShowcase from '@/components/ProductsShowcase.jsx';
-// import Advertise from '@/pages/recipes/components/Advertise.jsx';
 import Aside from './Aside.jsx';
 import AsideFilter from './AsideFilter.jsx';
 
@@ -82,6 +81,7 @@ function ProductListPage() {
 
   useEffect(() => {
     GetFilter(id);
+    window.scrollTo(0, 600);
   }, [id]);
   return (
     <>
@@ -97,16 +97,16 @@ function ProductListPage() {
                 <nav aria-label="breadcrumb">
                   <ol className="breadcrumb">
                     <li className="breadcrumb-item">
-                      <a href="/" style={style.productTextColor}>
+                      <Link to="/" style={style.productTextColor}>
                         <p className="m-0" />
                         <FaHome className="mx-1 mb-1" />
                         首頁
-                      </a>
+                      </Link>
                     </li>
                     <li className="breadcrumb-item">
-                      <a href="/products" style={style.productTextColor}>
+                      <Link to="/products" style={style.productTextColor}>
                         嚴選商品
-                      </a>
+                      </Link>
                     </li>
                   </ol>
                 </nav>

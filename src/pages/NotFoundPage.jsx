@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './NotFoundPage.scss';
 
 export default function NotFoundPage() {
@@ -14,7 +15,7 @@ export default function NotFoundPage() {
                   看起來您迷路了
                 </h3>
                 <p>您正在找的這個頁面並不存在!</p>
-                <a href="/" className="link_404">回首頁</a>
+                <Link to="/" className="link_404">回首頁</Link>
               </div>
             </div>
           </div>

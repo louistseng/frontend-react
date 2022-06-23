@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaCartPlus } from 'react-icons/fa';
 import useCart from '@/hooks/useCart';
 
@@ -8,13 +9,13 @@ function ProductsShowcaseGrid({ product }) {
 
   return (
     <div className="d-grid gap-2 product-container pb-5" style={{ width: '200px' }}>
-      <a href={`/product/${product.productId}`}>
+      <Link to={`/product/${product.productId}`}>
         <img
-          className="img200"
+          className="img200 rounded"
           src={product.imageSrc}
           alt={product.name}
         />
-      </a>
+      </Link>
       <span className="info fw-bold text-center text-truncate mt-3">
         {product.name}
       </span>

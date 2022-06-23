@@ -12,7 +12,7 @@ export default function Carousels() {
       <Carousel.Item interval={1500} style={Carouselstyle}>
         <img
           className="d-block w-100 h-100"
-          src="img/advertise001.png"
+          src="img/10.png"
           alt="First slide"
           padding-top="0px"
         />
@@ -20,7 +20,7 @@ export default function Carousels() {
       <Carousel.Item interval={1500} style={Carouselstyle}>
         <img
           className="d-block w-100 h-100"
-          src="img/advertise002.png"
+          src="img/11.png"
           alt="Second slide"
           padding-top="0px"
         />
@@ -28,7 +28,7 @@ export default function Carousels() {
       <Carousel.Item interval={1500} style={Carouselstyle}>
         <img
           className="d-block w-100 h-100"
-          src="img/advertise003.png"
+          src="img/12.png"
           alt="Third slide"
           padding-top="0px"
         />

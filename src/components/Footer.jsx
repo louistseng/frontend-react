@@ -20,13 +20,13 @@ function Footer() {
           </p>
           <IconContext.Provider value={{ color: '#707070' }}>
             <div className="footer-icons d-none d-lg-block mt-3">
-              <a href="https://www.google.com" className="mx-4">
+              <a href="https://www.google.com" className="mx-4" target="_blank" rel="noreferrer">
                 <FaGooglePlus />
               </a>
-              <a href="https://www.facebook.com" className="mx-4">
+              <a href="https://www.facebook.com" className="mx-4" target="_blank" rel="noreferrer">
                 <FaFacebook />
               </a>
-              <a href="https://www.instagram.com" className="mx-4">
+              <a href="https://www.instagram.com" className="mx-4" target="_blank" rel="noreferrer">
                 <FaInstagram />
               </a>
             </div>

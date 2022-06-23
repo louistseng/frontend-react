@@ -7,6 +7,9 @@
     height: 120px;
     background-color: #f4b886;
   }
+  .commit {
+    display:flex;
+  }
   .content img {
     width: 100%;
   }
@@ -35,8 +38,8 @@
   }
   .sidebar {
     width: 230px;
-    height: 2030px;
-    background-color: #F6E1CF;
+    background-color: #E8DDCA;
+    border: '1px solid #eee';
     .more {
       margin: 20px 0 0 0;
       display: block;
@@ -85,25 +88,19 @@
   }
 
   .title {
-    margin: 10px 0 0 0;
-  }
-  .title1 {
-    margin: 60px 0 0 0;
+    margin: 0px 0 0 0;
   }
 
   /* 按鈕 */
 
-  .button {
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .box2 {
+  .box {
     width: 85px;
     height: 36px;
     background-color: #ddd2b8;
-    border-radius: 30px;
-    margin: 10px;
+    border-radius: 10px;
+    margin: 20px 0 0 20px;
+    display: flex;
+    justify-content: center;
 
     h6 {
       display: flex;
@@ -119,12 +116,12 @@
   /* 食譜內容 */
 
   .menu {
-    margin: 30px 0 0 0px;
+    margin: 20px 0 0 0px;
   }
 
   .cookbook ul li img {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 3px;
   }
   .cookbook ul {
     list-style-type: none;
@@ -151,8 +148,11 @@
   }
 
   .wow {
-    margin: 0 0 0 0;
-    position: absolute;
+    margin: 20px 0 0px 0px;
+  }
+  .bucket {
+    display: flex;
+    margin: 20px 0 0 0;
   }
 
   /* 字體顏色 */
@@ -186,16 +186,37 @@
     color: #564e4a;
     font-size: 14px;
   }
+
+  .ellipsis {
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    }
   .fas {
     color: rgb(230, 210, 38);
   }
 
   /* 收藏按鈕 */
 
-  .keep1 {
-    width: 90px;
-    height: 36px;
+  .cook-delete{
+    display:flex;
+    align-items: center;
+  }
+
+  .keep{
+    width: 75px;
+    height: 34px;
     border-radius: 10px;
+
+  }
+
+  .keep1 {
+    width: 80px;
+    height: 34px;
+    border-radius: 10px;
+    margin: -5px 0px 0px 220px;
+
+    position:absolute;
   }
   h6 {
     .far {
@@ -231,8 +252,16 @@
         width:150px; */
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
   }
-  .sub-menu ul li img:hover {
-    opacity: 0.4;
+
+  .sub-menu img:hover {
+    opacity: 0.4; 
+    transform: scale(1.1);
+    transition: 0.2s;
+  }
+
+  .look img:hover{
+    opacity: 0.9; 
+
   }
 
   .keep1:hover {
@@ -247,18 +276,39 @@
     height: 520px;
   }
 
-  body,
-  button,
-  input,
-  select,
-  textarea,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: Microsoft YaHei, "宋體", Tahoma, Helvetica, Arial, "\5b8b\4f53",
-      sans-serif;
+  .animate__animated.animate__zoomIn {
+    --animate-duration: 2s;
   }
+
+  // body,
+  // button,
+  // input,
+  // select,
+  // textarea,
+  // h1,
+  // h2,
+  // h3,
+  // h4,
+  // h5,
+  // h6 {
+  //   font-family: Microsoft YaHei, "宋體", Tahoma, Helvetica, Arial, "\5b8b\4f53",
+  //     sans-serif;
+  // }
+  @media (min-width: 321px) and (max-width: 768px) {
+    .sidebar {
+      width: 200px;
+      background-color: #E8DDCA;
+      border: '1px solid #eee';
+      display: flex;
+      .more {
+        margin: 20px 0 0 0;
+        display: block;
+  
+        .sub-menu {
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+} 
 }

@@ -3,19 +3,27 @@
 
 /* eslint-disable react/jsx-one-expression-per-line */
 import React, { useEffect } from 'react';
+import { Container, Col, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './RecipeListPage.scss';
 import Tab from 'react-bootstrap/Tab';
-import { Container, Row } from 'react-bootstrap';
-import Breadcrumb from 'react-bootstrap/Breadcrumb';
-import { BsFillHouseDoorFill } from 'react-icons/bs';
+import PageBreadcrumb from '@/components/PageBreadcrumb.jsx';
 import { GiCook } from 'react-icons/gi';
-import Col from 'react-bootstrap/Col';
 import Advertise from '@/pages/recipes/components/Advertise.jsx';
 import Sidebar from '@/pages/recipes/components/Sidebar.jsx';
 import Cookbook from '@/pages/recipes/components/Cookbook.jsx';
-import Pagination from '@/pages/recipes/components/Pagination.jsx';
+// import Pagination from '@/pages/recipes/components/Pagination.jsx';
 
 export default function RecipeListPage() {
+  const style = {
+    formStyle: {
+      margin: '0px 0px 0px 12px',
+      border: '1px solid #eee',
+      padding: '25px',
+      fontSize: '18px',
+      boxShadow: '3px 3px 10px #ddd',
+    },
+  };
   const [recipes, setRecipes] = React.useState([]);
   const [id, setId] = React.useState();
 
@@ -41,51 +49,47 @@ export default function RecipeListPage() {
   return (
     <div className="RecipeListPage">
       <Advertise />
+      <Container>
+        <Row>
+          <Col lg={{ order: 'first' }}>
+            <div className="wow">
+              <PageBreadcrumb
+                pages={[
+                  { title: '好味食譜', href: '/recipes' },
+                  // { title: recipe.name, href: `/recipe/${recipe.recipeId}` },
+                ]}
+              />
+            </div>
+          </Col>
+          <Col lg={{ span: 2, offset: 3 }} xs={{ span: 1, offset: 9 }} xxl={{ span: 2, offset: 4 }}>
+            <div className="box">
+              <Link to="/recipe-collection">
+                <h6>食譜收藏</h6>
+              </Link>
+            </div>
+          </Col>
+        </Row>
+      </Container>
       <div className="menu">
         <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
           <Row className="justify-content-md-center">
-            <Col lg={2} xxl={2} className="sidebar">
+            <Col md={1} lg={1} xl={1} xxl={2} className="sidebar">
               <Sidebar setId={setId} />
             </Col>
-            <Col lg={9} xxl={8}>
-              <Container>
-                <Row>
-                  <Col>
-                    <div className="wow">
-                      <Breadcrumb>
-                        <Breadcrumb.Item href="#">
-                          <BsFillHouseDoorFill />
-                          首頁
-                        </Breadcrumb.Item>
-                        <Breadcrumb.Item href="/recipes">
-                          <GiCook />
-                          好味食譜
-                        </Breadcrumb.Item>
-                      </Breadcrumb>
-                    </div>
-                    <div className="button">
-                      <div className="box2">
-                        <a href="/recipe-collection">
-                          <h6>食譜收藏</h6>
-                        </a>
-                      </div>
-                    </div>
-                    <div className="title">
-                      <h2>
-                        <GiCook />
-                        好味食譜
-                      </h2>
-                      <hr />
-                    </div>
-                    <div className="cookbook">
-                      {recipes.map(value => <Cookbook recipe={value} />)}
-                    </div>
-                    <div xd={6} className="pag">
-                      <Pagination />
-                    </div>
-                  </Col>
-                </Row>
-              </Container>
+            <Col md={7} lg={8} xl={9} xxl={9} style={style.formStyle}>
+              <div className="title">
+                <h2>
+                  <GiCook />
+                  好味食譜
+                </h2>
+                <hr />
+              </div>
+              <div className="cookbook">
+                {recipes.map(value => <Cookbook recipe={value} />)}
+              </div>
+              <div xd={6} className="pag">
+                {/* <Pagination /> */}
+              </div>
             </Col>
           </Row>
         </Tab.Container>

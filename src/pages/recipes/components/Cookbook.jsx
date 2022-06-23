@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 // 此為食譜首頁-右邊（食譜）內容區塊
 
 /* eslint-disable react/prop-types */
@@ -13,7 +14,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
-import Nav from 'react-bootstrap/Nav';
+import { Nav } from 'react-bootstrap';
+import Swal from 'sweetalert2';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -43,72 +45,77 @@ function Cookbook(props) {
     // const params = { params: { recipe } };
     // eslint-disable-next-line no-unused-vars
     const reponse = await axios.post(url, { recipe_id: recipe.recipe_id, member_id: 0 });
-  };
 
+    Swal.fire({
+      position: 'center-center',
+      icon: 'success',
+      title: '成功收藏',
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
   return (
-    <div>
-      <div>
-        <ul>
-          <Tab.Content>
-            <Tab.Pane eventKey="#link1">
-              <li>
-                <div className="look">
+    <div className="animate__animated animate__zoomIn">
+      <ul>
+        <Tab.Content className="textlistn ">
+          <Tab.Pane eventKey="#link1">
+            <li>
+              <div className="look">
+                <Col sm={4}>
                   <Nav>
-                    <Nav.Link className="look" href={`/recipe/${recipe.recipe_id}`}>
-                      <Col sm={4}>
-                        <img
-                          src={recipe.cover_image_src}
-                          alt=" "
-                        />
-                      </Col>
-                      <Col sm={8}>
-                        <div className="book">
-                          <h4>{recipe.name}</h4>
-                          <div className={classes.root}>
-                            <Avatar
-                              alt=" "
-                              src={recipe.m__avatar_image_src}
-                              className={classes.small}
-                            />
-                            <p>{recipe.m__name}</p>
-                          </div>
-                          <p>
-                            {recipe.description}
-                          </p>
-                          <Box
-                            display="flex"
-                            component="fieldset"
-                            borderColor="transparent"
-                          >
-                            <Typography component="fieldset">食譜評分：</Typography>
-                            <Rating
-                              name="simple-controlled"
-                              value={value}
-                              readOnly
-                              onChange={(event, newValue) => {
-                                setValue(newValue);
-                              }}
-                            />
-                          </Box>
-                        </div>
-                      </Col>
+                    <Nav.Link href={`/recipe/${recipe.recipe_id}`}>
+                      <img
+                        src={recipe.cover_image_src}
+                        alt=" "
+                      />
                     </Nav.Link>
                   </Nav>
-                  <Col sm={1}>
-                    <Button type="button" onClick={insertData} variant="outline-danger" size="lg" className="keep1">
-                      <h6 className="far">
-                        <GiFishBucket />
-                        收藏
-                      </h6>
-                    </Button>
-                  </Col>
-                </div>
-                <hr />
-              </li>
-            </Tab.Pane>
-          </Tab.Content>
-        </ul>
-      </div>
+                </Col>
+                <Col sm={8}>
+                  <div className="book">
+                    <h5>{recipe.name}</h5>
+                    <div className={classes.root}>
+                      <Avatar
+                        alt=" "
+                        src={recipe.m__avatar_image_src}
+                        className={classes.small}
+                      />
+                      <p>{recipe.m__name}</p>
+                    </div>
+                    <p className="ellipsis">
+                      {recipe.description}
+                    </p>
+                    <div className="bucket">
+                      <Box
+                        display="flex"
+                        component="fieldset"
+                        borderColor="transparent"
+                      >
+                        <Typography component="fieldset">食譜評分：</Typography>
+                        <Rating
+                          name="simple-controlled"
+                          value={value}
+                          readOnly
+                          onChange={(event, newValue) => {
+                            setValue(newValue);
+                          }}
+                        />
+                      </Box>
+                      <Button onClick={insertData} variant="outline-danger" size="lg" className="keep1">
+                        <h6 className="far">
+                          <GiFishBucket />
+                          收藏
+                        </h6>
+                      </Button>
+                    </div>
+                  </div>
+                </Col>
+              </div>
+              <hr />
+            </li>
+          </Tab.Pane>
+        </Tab.Content>
+      </ul>
     </div>
   );
 }

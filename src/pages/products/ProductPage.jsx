@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { FaHome, FaCartPlus } from 'react-icons/fa';
 import { Tab } from 'react-bootstrap';
 import useCart from '@/hooks/useCart';
@@ -89,14 +89,14 @@ function SingleProduct() {
             <nav aria-label="breadcrmb">
               <ol className="breadcrumb">
                 <li className="breadcrumb-item">
-                  <a href="/" style={style.productTextColor}>
+                  <Link to="/" style={style.productTextColor}>
                     <p className="m-0" />
                     <FaHome className="mx-2 mb-1" />
                     首頁
-                  </a>
+                  </Link>
                 </li>
                 <li className="breadcrumb-item">
-                  <a href="/products" style={style.productTextColor}>嚴選商品</a>
+                  <Link to="/products" style={style.productTextColor}>嚴選商品</Link>
                 </li>
               </ol>
             </nav>

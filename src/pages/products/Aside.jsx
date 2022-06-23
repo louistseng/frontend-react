@@ -2,10 +2,8 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 // import { withRouter, useParams } from 'react-router-dom';
-import { Nav, Button } from 'react-bootstrap';
-import {
-  FaFish, FaLeaf, FaUtensils, FaShoppingCart,
-} from 'react-icons/fa';
+import { Nav } from 'react-bootstrap';
+import { FaFish, FaLeaf, FaUtensils } from 'react-icons/fa';
 
 export default function Aside(props) {
   const { setId } = props;

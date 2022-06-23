@@ -49,7 +49,7 @@ export default function MemberAside() {
         </Nav.Item>
         <Nav.Item style={style.sidebarList}>
           <Link to="orders" style={style.sidebarItem}>
-            歷史訂單
+            我的訂單
           </Link>
         </Nav.Item>
         {/* <Nav.Item style={style.sidebarList}>

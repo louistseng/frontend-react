@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconContext } from 'react-icons';
 import { Link } from 'react-router-dom';
-import { FaShoppingCart, FaUser, FaScroll } from 'react-icons/fa';
+import { FaShoppingCart, FaUser } from 'react-icons/fa';
 import { Navbar, Nav } from 'react-bootstrap';
 import globalState from '@/globalState';
 import useCart from '@/hooks/useCart';
@@ -9,6 +9,7 @@ import './Header.scss';
 
 export default function Header() {
   const [me] = globalState.useGlobalState('me');
+  const [ts] = globalState.useGlobalState('ts');
   const { cart } = useCart();
   const getCartTotal = () => cart.reduce(
     (sum, { count }) => sum + count,
@@ -53,14 +54,14 @@ export default function Header() {
     navIcons: {
       fontSize: '20px',
       padding: '5px',
-      marginRight: '50px',
+      marginRight: '30px',
     },
   };
 
   return (
     <Navbar expand="lg" style={style.navbar} fixed="top">
       <Navbar.Brand className="NavbarBrand mx-5" style={style.NavbarBrand}>
-        <Link href="/">
+        <Link to="/">
           <img src="/img/nightorder.png" style={style.NavbarBrandImg} alt="" />
         </Link>
       </Navbar.Brand>
@@ -88,9 +89,6 @@ export default function Header() {
             <Link to="/member" className="px-2">
               <FaUser />
             </Link>
-            <Link to="/orders" className="px-2">
-              <FaScroll />
-            </Link>
             <Link to="/cart" className="px-2" style={{ fontSize: '20px', color: '#707070' }}>
               <FaShoppingCart />
               <span className="badge badge-warning" id="lblCartCount">
@@ -104,7 +102,7 @@ export default function Header() {
                 </Link>
               ) : (
                 <Link to="/logout" className="px-2" style={{ fontSize: '18px', color: '#707070' }}>
-                  <img src={member.avatar_image_src} style={{ width: '40px', borderRadius: '50px', marginLeft: '-10px' }} alt="" />
+                  <img src={`${process.env.REACT_APP_API_ENDPOINT}/uploads/${member.member_id}.jpg?ts=${ts}`} style={{ width: '40px', borderRadius: '50px', marginLeft: '-10px' }} alt="" />
                   &nbsp;&nbsp;
                   登出
                 </Link>

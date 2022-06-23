@@ -3,18 +3,17 @@
 
 /* eslint-disable react/prop-types */
 import React from 'react';
-import Col from 'react-bootstrap/Col';
-import Tab from 'react-bootstrap/Tab';
+import { withRouter } from 'react-router-dom';
+import {
+  Button, Nav, Col, Tab,
+} from 'react-bootstrap';
+import axios from 'axios';
 import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import Rating from '@material-ui/lab/Rating';
 import { makeStyles } from '@material-ui/core/styles';
 import '../RecipeListPage.scss';
-import { withRouter } from 'react-router-dom';
-import axios from 'axios';
-import Button from 'react-bootstrap/Button';
-import Nav from 'react-bootstrap/Nav';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -52,56 +51,58 @@ function CollectionCookbook(props) {
         <ul>
           <Tab.Content>
             <Tab.Pane eventKey="#link1">
-              <li>
-                <Nav>
-                  <Nav.Link className="look" href=" ">
-                    <Col sm={2}>
+              <li className="look">
+                <Col lg={3} sm={3}>
+                  <Nav>
+                    <Nav.Link href={`/recipe/${recipe.recipe_id}`}>
                       <img
                         src={recipe.cover_image_src}
                         alt=" "
                       />
-                    </Col>
-                    <Col sm={8}>
-                      <div className="book">
-                        <h4>{recipe.name}</h4>
-                        <div className={classes.root}>
-                          <Avatar
-                            alt=" "
-                            src={recipe.m__avatar_image_src}
-                            className={classes.small}
-                          />
-                          <p>{recipe.m__name}</p>
-                        </div>
-                        <p>
-                          {recipe.description}
-                        </p>
-                        <Box
-                          display="flex"
-                          component="fieldset"
-                          borderColor="transparent"
-                        >
-                          <Typography component="fieldset">食譜評分：</Typography>
-                          <Rating
-                            name="simple-controlled"
-                            value={value}
-                            onChange={(event, newValue) => {
-                              setValue(newValue);
-                            }}
-                          />
-                        </Box>
-                      </div>
-                    </Col>
-                    <Col sm={1}>
-                      <Button onClick={deletePost} variant="outline-secondary" size="lg" className="keep1">
-                        <h6 className="far">
-                          取消收藏
-                        </h6>
-                      </Button>
-                    </Col>
-                  </Nav.Link>
-                </Nav>
-                <hr />
+                    </Nav.Link>
+                  </Nav>
+                </Col>
+                <Col lg={7} sm={7}>
+                  <div className="book">
+                    <h4>{recipe.name}</h4>
+                    <div className={classes.root}>
+                      <Avatar
+                        alt=" "
+                        src={recipe.m__avatar_image_src}
+                        className={classes.small}
+                      />
+                      <p>{recipe.m__name}</p>
+                    </div>
+                    <p>
+                      {recipe.description}
+                    </p>
+                    <Box
+                      display="flex"
+                      component="fieldset"
+                      borderColor="transparent"
+                    >
+                      <Typography component="fieldset">食譜評分：</Typography>
+                      <Rating
+                        name="simple-controlled"
+                        value={value}
+                        onChange={(event, newValue) => {
+                          setValue(newValue);
+                        }}
+                      />
+                    </Box>
+                  </div>
+                </Col>
+                <Col lg={{ span: 1, offset: 1 }} sm={1} className="cook-delete">
+                  <a href="/recipe-collection">
+                    <Button onClick={deletePost} variant="outline-secondary" size="lg" className="keep">
+                      <h6 className="far">
+                        取消
+                      </h6>
+                    </Button>
+                  </a>
+                </Col>
               </li>
+              <hr />
             </Tab.Pane>
           </Tab.Content>
         </ul>

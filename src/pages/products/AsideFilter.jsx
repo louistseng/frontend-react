@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import useCart from '@/hooks/useCart';
 import { Tab, Container } from 'react-bootstrap';
 import { FaCartPlus } from 'react-icons/fa';
@@ -21,14 +21,14 @@ function AsideFilter(props) {
               style={{ width: '200px' }}
               key={filter.productId}
             >
-              <a href={`/product/${filter.productId}`}>
+              <Link to={`/product/${filter.productId}`}>
                 <img
                   className="mb-3"
                   style={{ width: '200px' }}
                   src={filter.imageSrc}
                   alt=""
                 />
-              </a>
+              </Link>
               <span className="info fw-bold text-center text-truncate mt-1">
                 {filter.name}
               </span>

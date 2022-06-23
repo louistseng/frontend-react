@@ -4,6 +4,7 @@ import useCart from '@/hooks/useCart';
 import {
   Container, Col, Row, Form, Table, Accordion, Card,
 } from 'react-bootstrap';
+import MemberAside from './MemberAside.jsx';
 
 const style = {
   formStyle: {
@@ -18,9 +19,6 @@ const style = {
     text: 'red',
   },
 };
-const oredrStyle = {
-  height: '100vh',
-};
 
 export default function OrderPage() {
   const { cart } = useCart();
@@ -33,13 +31,22 @@ export default function OrderPage() {
   }
 
   return (
-    <div className=" order d-flex " style={oredrStyle}>
+    <div className=" order d-flex ">
+      <div>
+        <aside>
+          <MemberAside />
+        </aside>
+      </div>
       <Container>
         <Accordion>
           <Row>
             <Col xs={12} md={12}>
               <Form style={style.formStyle} className="">
                 <h5 className="mb-4 ">我的訂單</h5>
+                {
+              cart === null ? (
+                <h1>您目前沒有任何訂單</h1>
+              ) : (
                 <Accordion defaultActiveKey="1">
                   <Accordion.Item eventKey="0">
                     <Accordion.Header>
@@ -49,7 +56,7 @@ export default function OrderPage() {
                             <th>訂單編號</th>
                             <th>訂購日期</th>
                             <th>活動折扣</th>
-                            <th>訂單金總額</th>
+                            <th>訂單總額</th>
                             <th>付款方式</th>
                           </tr>
                         </thead>
@@ -116,6 +123,8 @@ export default function OrderPage() {
                     </Accordion.Body>
                   </Accordion.Item>
                 </Accordion>
+              )
+            }
               </Form>
             </Col>
           </Row>
